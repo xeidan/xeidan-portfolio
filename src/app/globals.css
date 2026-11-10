@@ -639,9 +639,10 @@ button {
 }
 .experience-item {
   display:grid;
-  grid-template-columns:45px 1fr 1.3fr;
-  gap:30px;
-  padding:30px 0;
+  grid-template-columns:45px minmax(180px, .85fr) minmax(0, 1.4fr);
+  align-items:start;
+  gap:clamp(20px, 3vw, 42px);
+  padding:34px 0;
   border-bottom:1px solid var(--line)
 }
 .experience-number {
@@ -669,20 +670,25 @@ button {
   font-size:9px;
   white-space:nowrap
 }
-.experience-details>p,.experience-details li {
-  font-size:12px;
-  color:#777871;
-  line-height:1.7
+.experience-details {
+  min-width:0
 }
 .experience-details>p {
-  margin:12px 0
+  max-width:680px;
+  margin:16px 0 0;
+  color:var(--muted);
+  font-size:13px;
+  line-height:1.85
 }
 .experience-details ul {
-  padding-left:17px;
-  margin:0
+  margin:16px 0 0;
+  padding-left:18px
 }
 .experience-details li {
-  padding:3px 0
+  padding:4px 0;
+  color:var(--muted);
+  font-size:13px;
+  line-height:1.8
 }
 .other-projects {
   padding:0 0 105px
@@ -1043,15 +1049,12 @@ button {
   .project-grid {
     grid-template-columns:repeat(2,minmax(0,1fr))
   }
-  .project-card-3 {
-    display:none
-  }
   .about-section {
     grid-template-columns:.55fr 1.45fr;
     gap:35px
   }
   .experience-item {
-    grid-template-columns:35px .8fr 1.2fr;
+    grid-template-columns:35px minmax(150px, .8fr) minmax(0, 1.2fr);
     gap:20px
   }
   .case-art .project-art {
@@ -1209,9 +1212,9 @@ button {
     padding:75px 0
   }
   .experience-item {
-    grid-template-columns:25px 1fr;
-    gap:12px;
-    padding:24px 0
+    grid-template-columns:25px minmax(0, 1fr);
+    gap:12px 14px;
+    padding:26px 0
   }
   .experience-number {
     grid-row:1/3
@@ -1432,4 +1435,229 @@ button {
 .case-art-image {
   object-fit: contain;
   object-position: center;
+}
+
+/* --------------------------------------------------------------------------
+   Global refinements
+   -------------------------------------------------------------------------- */
+
+:root {
+  color-scheme: light;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  --content-gutter: 32px;
+  --focus-ring: 0 0 0 3px rgba(124, 77, 255, .24);
+}
+
+html {
+  min-width: 320px;
+  scroll-padding-top: 100px;
+}
+
+body {
+  min-width: 320px;
+  overflow-x: clip;
+}
+
+img,
+svg,
+video,
+canvas {
+  max-width: 100%;
+}
+
+img {
+  height: auto;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: none;
+  box-shadow: var(--focus-ring);
+  border-radius: 3px;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: .55;
+}
+
+/* Prevent long text and grid children from forcing horizontal overflow. */
+.hero,
+.work-section,
+.about-section,
+.capabilities,
+.experience-section,
+.other-projects,
+.contact-section,
+.case-study,
+.projects-index {
+  min-width: 0;
+}
+
+.section-heading > *,
+.experience-item > *,
+.project-card,
+.project-card-body,
+.case-content > *,
+.case-facts > div {
+  min-width: 0;
+}
+
+.experience-details > p,
+.experience-details li,
+.project-card-body > p,
+.case-header > p,
+.case-body section > p,
+.contact-bottom p {
+  overflow-wrap: anywhere;
+}
+
+/* Consistent interaction states. */
+.desktop-nav a,
+.mobile-nav a,
+.about-links a,
+.footer-links a,
+.other-project-row > a,
+.back-link,
+.contact-email,
+.project-read {
+  transition: color .2s ease, opacity .2s ease, border-color .2s ease;
+}
+
+/* Project cards remain visible and fill their grid cells. */
+.project-grid,
+.project-grid-all {
+  align-items: stretch;
+}
+
+.project-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.project-card-link {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+}
+
+.project-card-body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+}
+
+.project-card-body > p {
+  min-height: 0;
+}
+
+.project-read {
+  margin-top: auto;
+}
+
+.project-screenshot-image,
+.project-detail-image-content,
+.case-art-image {
+  width: 100%;
+  height: 100%;
+}
+
+/* Experience entries expand naturally with their content. */
+.experience-item {
+  height: auto;
+  overflow: visible;
+}
+
+.experience-details > p {
+  white-space: normal;
+}
+
+.menu-toggle {
+  min-width: 42px;
+  min-height: 42px;
+  cursor: pointer;
+}
+
+.button {
+  min-height: 44px;
+}
+
+@media (max-width: 900px) {
+  .experience-item {
+    grid-template-columns: 35px minmax(0, .8fr) minmax(0, 1.2fr);
+    gap: 20px;
+  }
+
+  .project-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .project-card-3 {
+    display: flex;
+  }
+}
+
+@media (max-width: 640px) {
+  html {
+    scroll-padding-top: 78px;
+  }
+
+  .experience-item {
+    grid-template-columns: 25px minmax(0, 1fr);
+    gap: 12px 14px;
+  }
+
+  .experience-number {
+    grid-column: 1;
+    grid-row: 1 / span 2;
+  }
+
+  .experience-company,
+  .experience-details {
+    grid-column: 2;
+  }
+
+  .experience-details > p {
+    margin-top: 12px;
+    font-size: 13px;
+  }
+
+  .project-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .project-card-3 {
+    display: flex;
+  }
+
+  .contact-email {
+    max-width: 100%;
+    overflow-wrap: anywhere;
+  }
+
+  .case-header h1,
+  .projects-index-intro h1 {
+    overflow-wrap: anywhere;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+  }
 }

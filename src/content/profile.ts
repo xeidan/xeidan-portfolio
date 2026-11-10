@@ -34,48 +34,23 @@ export const profile = {
   ],
 };
 
+
 export const experience = [
   {
     company: "Metacap Technology",
-    role: "Senior Engineer",
-    dates: "Sep 2023 — Present",
+    role: "Founder & Full-Stack Developer",
+    dates: "2023 — Present",
     location: "Abuja, Nigeria",
     description:
-      "Lead and contribute to the development of web applications and digital products, working across frontend interfaces, backend services, integrations, and ongoing product improvements.",
-    points: [
-      "Develop and maintain full-stack web applications using modern JavaScript and TypeScript technologies.",
-      "Build responsive user interfaces and integrate them with backend services and third-party APIs.",
-      "Design application logic, data models, and API workflows to support product requirements.",
-      "Debug, test, and maintain applications through development and deployment.",
-    ],
+      "Lead development across REBOX, EarnRave and DNGT, covering application architecture, frontend and backend engineering, and deployment. Build REBOX's device identification engine, develop EarnRave's trading analytics and Binance market data integrations, and implement DNGT's Solidity smart contracts and Web3 wallet connectivity.",
   },
-
   {
-    company: "Mobo Marts",
-    role: "Full-stack Developer · Freelance",
-    dates: "Project engagement",
+    company: "Mobo Mart Ltd",
+    role: "Software Engineer",
+    dates: "2023",
     location: "Remote",
     description:
-      "Worked on an e-commerce application designed to support online product discovery and shopping workflows.",
-    points: [
-      "Developed React-based interfaces for browsing products and navigating the shopping experience.",
-      "Implemented application logic, data interactions, and validation for core e-commerce workflows.",
-      "Worked on payment integration and responsive layouts across different screen sizes.",
-    ],
-  },
-
-  {
-    company: "Property Pro",
-    role: "Full-stack Developer · Project",
-    dates: "Project engagement",
-    location: "Remote",
-    description:
-      "Developed a property rental web application focused on property discovery, listing information, and location-based browsing.",
-    points: [
-      "Implemented backend data interactions using MongoDB and Mongoose.",
-      "Integrated Mapbox for location and mapping functionality.",
-      "Used Cloudinary for image and media management.",
-      "Developed property discovery and listing interfaces.",
-    ],
+      "Developed and maintained the company's web application, improving UI performance and mobile responsiveness. Resolved 40+ frontend and backend bugs while contributing to feature development, testing and application maintenance.",
   },
 ];
+

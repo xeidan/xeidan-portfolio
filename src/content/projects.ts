@@ -31,7 +31,7 @@ export const projects: Project[] = [
     image: "/projects/dngt.png",
     visual: "dngt",
     links: {
-      live: "https://dngt-club.vercel.app/",
+      live: "https://dngt.io/",
     },
     status: "Project paused / research phase",
     challenge:
@@ -51,54 +51,58 @@ export const projects: Project[] = [
     ],
   },
 
-  {
-    slug: "earnrave",
-    name: "EarnRave",
-    category: "Fintech · Wallet infrastructure · Trading platform",
-    year: "2025–26",
-    summary:
-      "A financial platform with multi-wallet accounting, investment cycles, trading interfaces, and transaction records.",
-    description:
-      "EarnRave is a financial technology application designed around user wallets, deposits, referral balances, investment cycles, and trading activity. Its backend manages wallet balances, ledger entries, cycle lifecycles, positions, and settlement workflows.",
-    role: "Product engineer · Full-stack",
-    stack: [
-      "JavaScript",
-      "Node.js",
-      "Express",
-      "PostgreSQL",
-      "REST APIs",
-      "Lightweight Charts",
-      "Binance WebSocket",
-    ],
-    focus: [
-      "Multi-wallet architecture",
-      "Financial ledger",
-      "Investment cycle management",
-      "Trading dashboard",
-      "Position tracking",
-      "Cycle settlement",
-    ],
-    image: "/projects/earnrave.png",
-    visual: "earnrave",
-    links: {},
-    status: "Development project",
-    challenge:
-      "The platform needed to represent financial activity consistently across different wallet types and account operations. Balances, deposits, positions, and investment-cycle states needed to be backed by reliable server-side records rather than frontend calculations.",
-    approach: [
-      "Designed a PostgreSQL-backed wallet architecture for real, demo, and referral balances.",
-      "Implemented ledger-oriented transaction records to support auditable balance changes.",
-      "Built backend workflows for investment-cycle creation, lifecycle tracking, and settlement.",
-      "Developed dashboard interfaces for wallets, deposits, trading activity, and open positions.",
-      "Integrated market data and chart updates using Binance REST APIs, WebSockets, and Lightweight Charts.",
-      "Separated execution, wallet accounting, and cycle settlement responsibilities in the backend.",
-    ],
-    learnings: [
-      "Financial balances should be derived from controlled backend operations and auditable records.",
-      "Wallet types and transaction purposes should remain distinct throughout the system.",
-      "Trading interfaces must distinguish market data, execution events, and account positions.",
-      "Settlement logic requires clear lifecycle rules and safeguards against duplicate processing.",
-    ],
+
+{
+  slug: "earnrave",
+  name: "EarnRave",
+  category: "Trading Analytics · Trade Journaling · Fintech",
+  year: "2025–26",
+  summary:
+    "A trading journal and analytics platform designed to help traders track, analyse and improve their trading performance.",
+  description:
+    "EarnRave is a trading analytics platform focused on helping traders record and evaluate their trading activity. Its core direction centres on trade journaling, performance measurement, strategy analysis, risk assessment and actionable insights that help traders identify patterns and make better trading decisions.",
+  role: "Product Engineer · Full-Stack",
+  stack: [
+    "JavaScript",
+    "Node.js",
+    "Express",
+    "PostgreSQL",
+    "REST APIs",
+    "Lightweight Charts",
+    "Binance REST API",
+    "WebSockets",
+  ],
+  focus: [
+    "Trade journaling",
+    "Performance analytics",
+    "Strategy tracking",
+    "Risk assessment",
+    "Market data integration",
+    "Trading insights",
+  ],
+  image: "/projects/earnrave.png",
+  visual: "earnrave",
+  links: {
+    live: "https://earnrave.com/",
   },
+  status: "Development project",
+  challenge:
+    "Traders need a structured way to record their trades, evaluate performance and understand the patterns behind their results. EarnRave is being developed to bring trade records, market data and performance analysis into one platform.",
+  approach: [
+    "Designed the platform around trade journaling and structured trading records.",
+    "Developed the application foundation using Node.js, Express and PostgreSQL.",
+    "Integrated Binance market data through REST APIs and WebSockets.",
+    "Built interactive market visualisations using Lightweight Charts.",
+    "Defined the direction for performance measurement, strategy analysis and risk assessment.",
+  ],
+  learnings: [
+    "Structured trade records are essential for meaningful performance analysis.",
+    "Trading analytics requires consistent calculations and reliable underlying data.",
+    "Market data integrations need to account for real-time updates and connection reliability.",
+    "Useful trading insights should help traders understand their behaviour, not simply display statistics.",
+  ],
+},
+
 
   {
     slug: "rebox",
@@ -129,7 +133,9 @@ export const projects: Project[] = [
     ],
     image: "/projects/rebox.png",
     visual: "rebox",
-    links: {},
+    links: {
+      live: "https://rebox.ng/",
+    },
     status: "In active development",
     challenge:
       "Used-device marketplaces often rely on seller-entered product information, making it difficult to establish exactly which device is being listed. REBOX aims to make device identity and product information more structured and reliable.",
@@ -175,7 +181,9 @@ export const projects: Project[] = [
     ],
     image: "/projects/metacap.png",
     visual: "metacap",
-    links: {},
+    links: {
+      live: "https://metacaptechnology.com/",
+    },
     status: "Company project",
     challenge:
       "The goal was to establish a clear digital identity for the company and present its technology capabilities in a way that prospective clients could understand and explore.",

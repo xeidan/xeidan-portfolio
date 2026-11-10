@@ -204,86 +204,58 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Experience */}
-      <section
-        className="experience-section section-wrap"
-        id="experience"
-      >
-        <div className="section-heading">
-          <div>
-            <span className="eyebrow">EXPERIENCE / 04</span>
-            <h2>
-              Where I’ve
-              <br />
-              contributed.
-            </h2>
-          </div>
 
-          <p>
-            Professional work and project engagements across
-            software development.
-          </p>
+    {/* Experience */}
+    <section
+      className="experience-section section-wrap"
+      id="experience"
+    >
+      <div className="section-heading">
+        <div>
+          <span className="eyebrow">EXPERIENCE / 04</span>
+          <h2>
+            Where I’ve
+            <br />
+            contributed.
+          </h2>
         </div>
 
-        <div className="experience-list">
-          {experience.map((item, i) => (
-            <article
-              className="experience-item"
-              key={item.company}
-            >
-              <div className="experience-number">
-                0{i + 1}
+        <p>
+          Professional work and product development
+          across software engineering.
+        </p>
+      </div>
+
+      <div className="experience-list">
+        {experience.map((item, i) => (
+          <article
+            className="experience-item"
+            key={item.company}
+          >
+            <div className="experience-number">
+              0{i + 1}
+            </div>
+
+            <div className="experience-company">
+              <h3>{item.company}</h3>
+              <span>{item.location}</span>
+            </div>
+
+            <div className="experience-details">
+              <div className="experience-title">
+                <strong>{item.role}</strong>
+                <span>{item.dates}</span>
               </div>
 
-              <div className="experience-company">
-                <h3>{item.company}</h3>
-                <span>{item.location}</span>
-              </div>
+              <p>{item.description}</p>
+            </div>
+          </article>
+        ))}
+      </div>
+    </section>
 
-              <div className="experience-details">
-                <div className="experience-title">
-                  <strong>{item.role}</strong>
-                  <span>{item.dates}</span>
-                </div>
 
-                <p>{item.description}</p>
 
-                <ul>
-                  {item.points.slice(0, 3).map((point) => (
-                    <li key={point}>{point}</li>
-                  ))}
-                </ul>
-              </div>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      {/* Additional Projects */}
-      <section className="other-projects section-wrap">
-        <div className="other-projects-heading">
-          <span className="eyebrow">ALSO IN THE WORKS / 05</span>
-          <p>Additional client and product work.</p>
-        </div>
-
-        <div className="other-project-row">
-          {projects.slice(3).map((project, i) => (
-            <Link
-              href={`/projects/${project.slug}`}
-              key={project.slug}
-            >
-              <span>0{i + 1}</span>
-
-              <div>
-                <strong>{project.name}</strong>
-                <small>{project.category}</small>
-              </div>
-
-              <ArrowUpRight size={17} />
-            </Link>
-          ))}
-        </div>
-      </section>
 
       {/* Contact */}
       <section
@@ -292,7 +264,7 @@ export default function HomePage() {
       >
         <div className="contact-label">
           <span className="eyebrow">
-            HAVE SOMETHING IN MIND? / 06
+            HAVE SOMETHING IN MIND? / 05
           </span>
 
           <span>AVAILABLE FOR THE RIGHT OPPORTUNITY</span>
