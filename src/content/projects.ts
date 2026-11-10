@@ -217,7 +217,7 @@ export const projects: Project[] = [
       "Responsive web design",
       "Visual interaction design",
     ],
-    image: "/projects/acer-institute.png",
+    image: "/projects/ait.png",
     visual: "acer",
     links: {
       live: "https://acer-institute-of-tecnology.vercel.app/",
@@ -263,7 +263,7 @@ export const projects: Project[] = [
       "Responsive design",
       "User experience",
     ],
-    image: "/projects/zamar-fields.png",
+    image: "/projects/zamar.png",
     visual: "zamar",
     links: {
       live: "https://zamar-fields-website.vercel.app/",
