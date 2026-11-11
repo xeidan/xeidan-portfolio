@@ -20,14 +20,19 @@ export function ProjectCard({
         aria-label={`Read the ${project.name} case study`}
       >
         <div className="project-screenshot">
-          {project.image && (
+          {project.image ? (
             <Image
               src={project.image}
               alt={`${project.name} application interface`}
               fill
               sizes="(max-width: 640px) 100vw, (max-width: 900px) 50vw, 33vw"
               className="project-screenshot-image"
+              loading="lazy"
             />
+          ) : (
+            <div className="project-image-fallback" aria-hidden="true">
+              <span>{project.name}</span>
+            </div>
           )}
         </div>
 
@@ -39,7 +44,7 @@ export function ProjectCard({
 
           <h3>
             {project.name}
-            <ArrowUpRight size={18} />
+            <ArrowUpRight size={18} aria-hidden="true" />
           </h3>
 
           <p>{project.summary}</p>
@@ -52,7 +57,7 @@ export function ProjectCard({
 
           <div className="project-read">
             View case study
-            <ArrowRight size={15} />
+            <ArrowRight size={15} aria-hidden="true" />
           </div>
         </div>
       </Link>

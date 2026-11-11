@@ -11,24 +11,25 @@ import {
 import { profile, experience } from "@/content/profile";
 import { featuredProjects, projects } from "@/content/projects";
 import { ProjectCard } from "@/components/project-card";
+import { Reveal } from "@/components/reveal";
 
 export default function HomePage() {
   return (
     <>
       {/* Hero */}
       <section className="hero page-wrap">
-        <div className="hero-overline">
+        <div className="hero-overline hero-animate hero-animate-1">
           <span className="availability-dot" />
           {profile.availability}
         </div>
 
-        <h1>
+        <h1 className="hero-animate hero-animate-2">
           {profile.intro.split("software")[0]}
           <em>software</em>
           {profile.intro.split("software")[1]}
         </h1>
 
-        <div className="hero-bottom">
+        <div className="hero-bottom hero-animate hero-animate-3">
           <p>{profile.description}</p>
 
           <div className="hero-actions">
@@ -49,7 +50,7 @@ export default function HomePage() {
           </div>
         </div>
 
-        <div className="hero-index">
+        <div className="hero-index hero-animate hero-animate-4">
           <span>01 / INTRODUCTION</span>
           <span>
             ABUJA, NIGERIA · {new Date().getFullYear()}
@@ -59,46 +60,47 @@ export default function HomePage() {
 
       {/* Selected Work */}
       <section className="work-section section-wrap" id="work">
-        <div className="section-heading">
-          <div>
-            <span className="eyebrow">SELECTED WORK / 01—03</span>
-            <h2>
-              Products, systems
-              <br />
-              and ideas in progress.
-            </h2>
-          </div>
+        <Reveal>
+          <div className="section-heading">
+            <div>
+              <span className="eyebrow">SELECTED WORK / 01—03</span>
+              <h2>
+                Products, systems
+                <br />
+                and ideas in progress.
+              </h2>
+            </div>
 
-          <p>
-            A selection of product engineering work—from early-stage
-            systems to shipped client experiences.
-          </p>
-        </div>
+            <p>
+              A selection of product engineering work—from early-stage
+              systems to shipped client experiences.
+            </p>
+          </div>
+        </Reveal>
 
         <div className="project-grid">
           {featuredProjects.map((project, i) => (
-            <ProjectCard
-              key={project.slug}
-              project={project}
-              index={i}
-            />
+            <Reveal key={project.slug} delay={i * 100}>
+              <ProjectCard project={project} index={i} />
+            </Reveal>
           ))}
         </div>
 
-        <div className="all-work">
-          <span>{projects.length} PROJECTS · CASE STUDIES</span>
+        <Reveal delay={100}>
+          <div className="all-work">
+            <span>{projects.length} PROJECTS · CASE STUDIES</span>
 
-          <Link href="/projects" className="button button-dark">
-            View other projects
-            <ArrowRight size={16} />
-          </Link>
-        </div>
-        
+            <Link href="/projects" className="button button-dark">
+              View other projects
+              <ArrowRight size={16} />
+            </Link>
+          </div>
+        </Reveal>
       </section>
 
       {/* About */}
       <section className="about-section section-wrap" id="about">
-        <div className="about-aside">
+        <Reveal className="about-aside">
           <span className="eyebrow">A LITTLE ABOUT ME / 02</span>
 
           <div className="about-stamp">
@@ -108,9 +110,9 @@ export default function HomePage() {
             <br />
             BUILDER
           </div>
-        </div>
+        </Reveal>
 
-        <div className="about-main">
+        <Reveal className="about-main" delay={120}>
           <h2>
             Curious by default.
             <br />
@@ -147,149 +149,156 @@ export default function HomePage() {
               <ArrowUpRight size={14} />
             </a>
           </div>
-        </div>
+        </Reveal>
       </section>
 
       {/* Capabilities */}
       <section className="capabilities section-wrap">
-        <div className="section-heading compact">
-          <div>
-            <span className="eyebrow">HOW I WORK / 03</span>
-            <h2>
-              Across the stack.
-              <br />
-              Close to the problem.
-            </h2>
+        <Reveal>
+          <div className="section-heading compact">
+            <div>
+              <span className="eyebrow">HOW I WORK / 03</span>
+              <h2>
+                Across the stack.
+                <br />
+                Close to the problem.
+              </h2>
+            </div>
           </div>
-        </div>
+        </Reveal>
 
         <div className="capability-grid">
-          <article>
-            <span>01</span>
-            <h3>Frontend engineering</h3>
+          <Reveal>
+            <article>
+              <span>01</span>
+              <h3>Frontend engineering</h3>
 
-            <p>
-              Accessible, responsive interfaces that make complex
-              workflows feel straightforward.
-            </p>
+              <p>
+                Accessible, responsive interfaces that make complex
+                workflows feel straightforward.
+              </p>
 
-            <div>React · Next.js · TypeScript · CSS</div>
-          </article>
+              <div>React · Next.js · TypeScript · CSS</div>
+            </article>
+          </Reveal>
 
-          <article>
-            <span>02</span>
-            <h3>Backend & data</h3>
+          <Reveal delay={100}>
+            <article>
+              <span>02</span>
+              <h3>Backend & data</h3>
 
-            <p>
-              Application logic, APIs, data models, and integrations
-              built for maintainability.
-            </p>
+              <p>
+                Application logic, APIs, data models, and integrations
+                built for maintainability.
+              </p>
 
-            <div>
-              Node.js · Express · PostgreSQL · Supabase
-            </div>
-          </article>
+              <div>
+                Node.js · Express · PostgreSQL · Supabase
+              </div>
+            </article>
+          </Reveal>
 
-          <article>
-            <span>03</span>
-            <h3>Product delivery</h3>
+          <Reveal delay={200}>
+            <article>
+              <span>03</span>
+              <h3>Product delivery</h3>
 
-            <p>
-              Taking ideas through implementation, testing,
-              deployment, and iteration.
-            </p>
+              <p>
+                Taking ideas through implementation, testing,
+                deployment, and iteration.
+              </p>
 
-            <div>Git · CI/CD · Vercel · Testing</div>
-          </article>
+              <div>Git · CI/CD · Vercel · Testing</div>
+            </article>
+          </Reveal>
         </div>
       </section>
 
+      {/* Experience */}
+      <section
+        className="experience-section section-wrap"
+        id="experience"
+      >
+        <Reveal>
+          <div className="section-heading">
+            <div>
+              <span className="eyebrow">EXPERIENCE / 04</span>
+              <h2>
+                Where I’ve
+                <br />
+                contributed.
+              </h2>
+            </div>
 
-    {/* Experience */}
-    <section
-      className="experience-section section-wrap"
-      id="experience"
-    >
-      <div className="section-heading">
-        <div>
-          <span className="eyebrow">EXPERIENCE / 04</span>
-          <h2>
-            Where I’ve
-            <br />
-            contributed.
-          </h2>
+            <p>
+              Professional work and product development
+              across software engineering.
+            </p>
+          </div>
+        </Reveal>
+
+        <div className="experience-list">
+          {experience.map((item, i) => (
+            <Reveal key={item.company} delay={i * 100}>
+              <article className="experience-item">
+                <div className="experience-number">
+                  0{i + 1}
+                </div>
+
+                <div className="experience-company">
+                  <h3>{item.company}</h3>
+                  <span>{item.location}</span>
+                </div>
+
+                <div className="experience-details">
+                  <div className="experience-title">
+                    <strong>{item.role}</strong>
+                    <span>{item.dates}</span>
+                  </div>
+
+                  <p>{item.description}</p>
+                </div>
+              </article>
+            </Reveal>
+          ))}
         </div>
-
-        <p>
-          Professional work and product development
-          across software engineering.
-        </p>
-      </div>
-
-      <div className="experience-list">
-        {experience.map((item, i) => (
-          <article
-            className="experience-item"
-            key={item.company}
-          >
-            <div className="experience-number">
-              0{i + 1}
-            </div>
-
-            <div className="experience-company">
-              <h3>{item.company}</h3>
-              <span>{item.location}</span>
-            </div>
-
-            <div className="experience-details">
-              <div className="experience-title">
-                <strong>{item.role}</strong>
-                <span>{item.dates}</span>
-              </div>
-
-              <p>{item.description}</p>
-            </div>
-          </article>
-        ))}
-      </div>
-    </section>
-
-
-
+      </section>
 
       {/* Contact */}
       <section
         className="contact-section section-wrap"
         id="contact"
       >
-        <div className="contact-label">
-          <span className="eyebrow">
-            HAVE SOMETHING IN MIND? / 05
-          </span>
+        <Reveal>
+          <div className="contact-label">
+            <span className="eyebrow">
+              HAVE SOMETHING IN MIND? / 05
+            </span>
 
-          <span>AVAILABLE FOR THE RIGHT OPPORTUNITY</span>
-        </div>
+            <span>AVAILABLE FOR THE RIGHT OPPORTUNITY</span>
+          </div>
 
-        <h2>
-          Let’s build something
-          <br />
-          <em>that matters.</em>
-        </h2>
+          <h2>
+            Let’s build something
+            <br />
+            <em>that matters.</em>
+          </h2>
 
-        <div className="contact-bottom">
-          <p>
-            Interested in working together or want to talk through
-            a product challenge? My inbox is open.
-          </p>
+          <div className="contact-bottom">
+            <p>
+              Interested in working together or want to talk through
+              a product challenge? My inbox is open.
+            </p>
 
-          <a
-            className="contact-email"
-            href={`mailto:${profile.email}`}
-          >
-            {profile.email}
-            <ArrowUpRight size={19} />
-          </a>
-        </div>
+            <a
+              className="contact-email"
+              href={`mailto:${profile.email}`}
+            >
+              {profile.email}
+              <ArrowUpRight size={19} />
+            </a>
+          </div>
+        </Reveal>
       </section>
     </>
   );
